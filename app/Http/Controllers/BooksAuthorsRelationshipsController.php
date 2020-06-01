@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Http\Requests\BooksAuthorsRelationshipsRequest;
 use App\Http\Resources\AuthorsIdentifierResource;
+use App\Http\Resources\JSONAPIIdentifierResource;
 use Illuminate\Http\Request;
 
 class BooksAuthorsRelationshipsController extends Controller
 {
     public function index(Book $book)
     {
-        return AuthorsIdentifierResource::collection($book->authors);
+        return JSONAPIIdentifierResource::collection($book->authors);
     }
 
     public function update(BooksAuthorsRelationshipsRequest $request, Book $book)

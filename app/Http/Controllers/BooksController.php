@@ -7,6 +7,8 @@ use App\Http\Requests\CreateBookRequest;
 use App\Http\Requests\UpdateBookRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\BooksResource;
+use App\Http\Resources\JSONAPIResource;
+use App\Http\Resources\JSONAPICollection;
 use App\Http\Resources\BooksCollection;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -28,7 +30,7 @@ class BooksController extends Controller
             ->allowedIncludes('authors')
             ->jsonPaginate();
 //        return view('dd', compact('books'));
-         return new BooksCollection($books);
+         return new JSONAPICollection($books);
     }
 
     /**
@@ -54,7 +56,7 @@ class BooksController extends Controller
             'description' => $request->input('data.attributes.description'),
             'publication_year' => $request->input('data.attributes.publication_year'),
         ]);
-        return (new BooksResource($book))
+        return (new JSONAPIResource($book))
             ->response()
             ->header('Location', route('books.show', [
                 'book' => $book,
@@ -73,7 +75,7 @@ class BooksController extends Controller
             ->allowedIncludes('authors')
             ->firstOrFail();
 //        return view('dd', compact('query'));
-        return new BooksResource($query);
+        return new JSONAPIResource($query);
     }
 
     /**
@@ -97,7 +99,7 @@ class BooksController extends Controller
     public function update(UpdateBookRequest $request, Book $book)
     {
         $book->update($request->input('data.attributes'));
-        return new BooksResource($book);
+        return new JSONAPIResource($book);
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Book extends AbstractAPIModel
 {
     protected $fillable = [
         'title',
@@ -16,4 +16,10 @@ class Book extends Model
     {
         return $this->belongsToMany(Author::class);
     }
+
+    public function type()
+    {
+        return 'books';
+    }
+
 }

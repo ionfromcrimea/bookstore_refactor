@@ -6,6 +6,8 @@ use App\Author;
 use App\Http\Requests\CreateAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use App\Http\Resources\AuthorsResource;
+use App\Http\Resources\JSONAPICollection;
+use App\Http\Resources\JSONAPIResource;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -26,7 +28,8 @@ class AuthorsController extends Controller
         ])->jsonPaginate();
 
 //        return $authors;
-        $responce = AuthorsResource::collection($authors);
+//        $responce = AuthorsResource::collection($authors);
+        $responce = new JSONAPICollection($authors);
 //        dd($responce);
         return $responce;
     }
@@ -52,7 +55,9 @@ class AuthorsController extends Controller
         $author = Author::create([
             'name' => $request->input('data.attributes.name'),
         ]);
-        return (new AuthorsResource($author))->response()->header('Location', route('authors.show', ['author' => $author->id]));;
+        return (new JSONAPIResource($author))
+            ->response()
+            ->header('Location', route('authors.show', ['author' => $author->id]));;
     }
 
     /**
@@ -63,7 +68,7 @@ class AuthorsController extends Controller
      */
     public function show(Author $author)
     {
-        $responce = new AuthorsResource($author);
+        $responce = new JSONAPIResource($author);
         return $responce;
     }
 
@@ -88,7 +93,9 @@ class AuthorsController extends Controller
     public function update(UpdateAuthorRequest $request, Author $author)
     {
         $author->update($request->input('data.attributes'));
-        return (new AuthorsResource($author))->response()->header('Location', route('authors.show', ['author' => $author->id]));;
+        return (new JSONAPIResource($author))
+            ->response()
+            ->header('Location', route('authors.show', ['author' => $author->id]));;
 //        return new AuthorsResource($author);
     }
 

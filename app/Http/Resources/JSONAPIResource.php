@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\MissingValue;
+use Illuminate\Support\Str;
 
 class JSONAPIResource extends JsonResource
 {
@@ -30,6 +31,7 @@ class JSONAPIResource extends JsonResource
                 $relatedType = $related['type'];
                 $relationship = $related['method'];
                 $relationid = $related['id'];
+//                $relationid = Str::singular($relatedType);
                 return [
                     $relatedType => [
                         'links' => [

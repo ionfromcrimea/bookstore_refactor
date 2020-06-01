@@ -8,11 +8,18 @@ use App\Http\Requests\UpdateAuthorRequest;
 use App\Http\Resources\AuthorsResource;
 use App\Http\Resources\JSONAPICollection;
 use App\Http\Resources\JSONAPIResource;
+use App\Services\JSONAPIService;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class AuthorsController extends Controller
 {
+    private $service;
+    public function __construct(JSONAPIService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,17 +28,17 @@ class AuthorsController extends Controller
     public function index()
     {
 //        $authors = Author::all();
-        $authors = QueryBuilder::for(Author::class)->allowedSorts([
-            'name',
-            'created_at',
-            'updated_at',
-        ])->jsonPaginate();
-
+//        $authors = QueryBuilder::for(Author::class)->allowedSorts([
+//            'name',
+//            'created_at',
+//            'updated_at',
+//        ])->jsonPaginate();
+        return $this->service->fetchResources(Author::class, 'authors');
 //        return $authors;
 //        $responce = AuthorsResource::collection($authors);
-        $responce = new JSONAPICollection($authors);
+//        $responce = new JSONAPICollection($authors);
 //        dd($responce);
-        return $responce;
+//        return $responce;
     }
 
     /**
@@ -52,12 +59,13 @@ class AuthorsController extends Controller
      */
     public function store(CreateAuthorRequest $request)
     {
-        $author = Author::create([
-            'name' => $request->input('data.attributes.name'),
-        ]);
-        return (new JSONAPIResource($author))
-            ->response()
-            ->header('Location', route('authors.show', ['author' => $author->id]));;
+//        $author = Author::create([
+//            'name' => $request->input('data.attributes.name'),
+//        ]);
+//        return (new JSONAPIResource($author))
+//            ->response()
+//            ->header('Location', route('authors.show', ['author' => $author->id]));;
+        return $this->service->createResource(Author::class, $request->input('data.attributes'));
     }
 
     /**
@@ -68,8 +76,9 @@ class AuthorsController extends Controller
      */
     public function show(Author $author)
     {
-        $responce = new JSONAPIResource($author);
-        return $responce;
+//        $responce = new JSONAPIResource($author);
+//        return $responce;
+        return $this->service->fetchResource($author);
     }
 
     /**
@@ -92,10 +101,11 @@ class AuthorsController extends Controller
      */
     public function update(UpdateAuthorRequest $request, Author $author)
     {
-        $author->update($request->input('data.attributes'));
-        return (new JSONAPIResource($author))
-            ->response()
-            ->header('Location', route('authors.show', ['author' => $author->id]));;
+//        $author->update($request->input('data.attributes'));
+//        return (new JSONAPIResource($author))
+//            ->response()
+//            ->header('Location', route('authors.show', ['author' => $author->id]));;
+        return $this->service->updateResource($author, $request->input('data.attributes'));
 //        return new AuthorsResource($author);
     }
 
@@ -107,7 +117,8 @@ class AuthorsController extends Controller
      */
     public function destroy(Author $author)
     {
-        $author->delete();
-        return response(null, 204);
+//        $author->delete();
+//        return response(null, 204);
+        return $this->service->deleteResource($author);
     }
 }

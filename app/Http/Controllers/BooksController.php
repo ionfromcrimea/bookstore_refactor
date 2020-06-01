@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Http\Requests\CreateBookRequest;
 use App\Http\Requests\UpdateBookRequest;
+use App\Services\JSONAPIService;
 use Illuminate\Http\Request;
 use App\Http\Resources\BooksResource;
 use App\Http\Resources\JSONAPIResource;
@@ -14,6 +15,12 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class BooksController extends Controller
 {
+    private $service;
+    public function __construct(JSONAPIService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,16 +28,17 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $books = QueryBuilder::for(Book::class)->allowedSorts([
-            'title',
-            'publication_year',
-            'created_at',
-            'updated_at',
-        ])
-            ->allowedIncludes('authors')
-            ->jsonPaginate();
-//        return view('dd', compact('books'));
-         return new JSONAPICollection($books);
+//        $books = QueryBuilder::for(Book::class)->allowedSorts([
+//            'title',
+//            'publication_year',
+//            'created_at',
+//            'updated_at',
+//        ])
+//            ->allowedIncludes('authors')
+//            ->jsonPaginate();
+////        return view('dd', compact('books'));
+//         return new JSONAPICollection($books);
+        return $this->service->fetchResources(Book::class, 'books');
     }
 
     /**
@@ -51,16 +59,17 @@ class BooksController extends Controller
      */
     public function store(CreateBookRequest $request)
     {
-        $book = Book::create([
-            'title' => $request->input('data.attributes.title'),
-            'description' => $request->input('data.attributes.description'),
-            'publication_year' => $request->input('data.attributes.publication_year'),
-        ]);
-        return (new JSONAPIResource($book))
-            ->response()
-            ->header('Location', route('books.show', [
-                'book' => $book,
-            ]));
+//        $book = Book::create([
+//            'title' => $request->input('data.attributes.title'),
+//            'description' => $request->input('data.attributes.description'),
+//            'publication_year' => $request->input('data.attributes.publication_year'),
+//        ]);
+//        return (new JSONAPIResource($book))
+//            ->response()
+//            ->header('Location', route('books.show', [
+//                'book' => $book,
+//            ]));
+        return $this->service->createResource(Book::class, $request->input('data.attributes'));
     }
 
     /**
@@ -71,11 +80,12 @@ class BooksController extends Controller
      */
     public function show($book)
     {
-        $query = QueryBuilder::for(Book::where('id', $book))
-            ->allowedIncludes('authors')
-            ->firstOrFail();
-//        return view('dd', compact('query'));
-        return new JSONAPIResource($query);
+//        $query = QueryBuilder::for(Book::where('id', $book))
+//            ->allowedIncludes('authors')
+//            ->firstOrFail();
+////        return view('dd', compact('query'));
+//        return new JSONAPIResource($query);
+        return $this->service->fetchResource(Book::class, $book, 'books');
     }
 
     /**
@@ -98,8 +108,9 @@ class BooksController extends Controller
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        $book->update($request->input('data.attributes'));
-        return new JSONAPIResource($book);
+//        $book->update($request->input('data.attributes'));
+//        return new JSONAPIResource($book);
+        return $this->service->updateResource($book, $request->input('data.attributes'));
     }
 
     /**
@@ -111,6 +122,7 @@ class BooksController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return response(null, 204);
+//        return response(null, 204);
+        return $this->service->deleteResource($book);
     }
 }

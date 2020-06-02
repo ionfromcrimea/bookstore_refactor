@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use App\Http\Requests\CreateAuthorRequest;
+use App\Http\Requests\JSONAPIRequest;
 use App\Http\Requests\UpdateAuthorRequest;
 use App\Http\Resources\AuthorsResource;
 use App\Http\Resources\JSONAPICollection;
@@ -57,7 +58,7 @@ class AuthorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateAuthorRequest $request)
+    public function store(JSONAPIRequest $request)
     {
 //        $author = Author::create([
 //            'name' => $request->input('data.attributes.name'),
@@ -99,7 +100,7 @@ class AuthorsController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAuthorRequest $request, Author $author)
+    public function update(JSONAPIRequest $request, Author $author)
     {
 //        $author->update($request->input('data.attributes'));
 //        return (new JSONAPIResource($author))

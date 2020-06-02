@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\CreateBookRequest;
+use App\Http\Requests\JSONAPIRequest;
 use App\Http\Requests\UpdateBookRequest;
 use App\Services\JSONAPIService;
 use Illuminate\Http\Request;
@@ -57,7 +58,7 @@ class BooksController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateBookRequest $request)
+    public function store(JSONAPIRequest $request)
     {
 //        $book = Book::create([
 //            'title' => $request->input('data.attributes.title'),
@@ -106,7 +107,7 @@ class BooksController extends Controller
      * @param \App\Book $book
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookRequest $request, Book $book)
+    public function update(JSONAPIRequest $request, Book $book)
     {
 //        $book->update($request->input('data.attributes'));
 //        return new JSONAPIResource($book);

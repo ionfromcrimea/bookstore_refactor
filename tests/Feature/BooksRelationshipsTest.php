@@ -384,7 +384,7 @@ class BooksRelationshipsTest extends TestCase
             'data' => [
                 [
                     'id' => '5',
-                    'type' => 'books',
+                    'type' => 'random',
                 ],
             ]
         ], [

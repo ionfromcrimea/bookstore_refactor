@@ -16,6 +16,13 @@ return [
                     'data.attributes.name' => 'sometimes|required|string',
                 ]
             ],
+//            'relationships' => [
+//                [
+//                    'type' => 'books',
+//                    'method' => 'books',
+//                    'id' => 'author',
+//                ]
+//            ]
         ],
         'books' => [
             'allowedSorts' => [

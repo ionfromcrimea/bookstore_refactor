@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Http\Requests\BooksAuthorsRelationshipsRequest;
+use App\Http\Requests\JSONAPIRelationshipRequest;
 use App\Http\Resources\AuthorsIdentifierResource;
 use App\Http\Resources\JSONAPIIdentifierResource;
 use App\Services\JSONAPIService;
@@ -23,7 +24,7 @@ class BooksAuthorsRelationshipsController extends Controller
         return $this->service->fetchRelationship($book, 'authors');
     }
 
-    public function update(BooksAuthorsRelationshipsRequest $request, Book $book)
+    public function update(JSONAPIRelationshipRequest $request, Book $book)
     {
 //        $ids = $request->input('data.*.id');
 //        $book->authors()->sync($ids);

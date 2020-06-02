@@ -42,8 +42,7 @@ class AuthorsTest extends TestCase
     /**
      * @test
      */
-    public function
-    it_returns_all_authors_as_a_collection_of_resource_objects()
+    public function it_returns_all_authors_as_a_collection_of_resource_objects()
     {
         $user = factory(User::class)->create();
         Passport::actingAs($user);

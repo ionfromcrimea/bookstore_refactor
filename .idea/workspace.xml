@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="78c81b5b-83b8-411e-9d08-7ddf31ce9f8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/AuthorsCollection.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/AuthorsCollection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/BooksResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/BooksResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BooksAuthorsRelationshipsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksAuthorsRelationshipsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/jsonapi.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jsonapi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/AuthorsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/AuthorsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/BooksRelationshipsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/BooksRelationshipsTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +195,7 @@
       <workItem from="1590141280906" duration="773000" />
       <workItem from="1590572073864" duration="5310000" />
       <workItem from="1590668394285" duration="630000" />
-      <workItem from="1590752916907" duration="25888000" />
+      <workItem from="1590752916907" duration="31773000" />
     </task>
     <servers />
   </component>

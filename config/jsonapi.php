@@ -8,6 +8,9 @@ return [
                 'created_at',
                 'updated_at',
             ],
+            'allowedIncludes' => [
+                'books'
+            ],
             'validationRules' => [
                 'create' => [
                     'data.attributes.name' => 'required|string',
@@ -16,13 +19,13 @@ return [
                     'data.attributes.name' => 'sometimes|required|string',
                 ]
             ],
-//            'relationships' => [
-//                [
-//                    'type' => 'books',
-//                    'method' => 'books',
-//                    'id' => 'author',
-//                ]
-//            ]
+            'relationships' => [
+                [
+                    'type' => 'books',
+                    'method' => 'books',
+                    'id' => 'author',
+                ]
+            ]
         ],
         'books' => [
             'allowedSorts' => [

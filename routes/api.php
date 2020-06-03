@@ -27,13 +27,23 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
 //    Route::get('/authors/{author}', 'AuthorsController@show');
     Route::apiResource('authors', 'AuthorsController');
 
+    Route::get('authors/{author}/relationships/books', 'AuthorsBooksRelationshipsController@index')
+        ->name('authors.relationships.books');
+
+    Route::get('authors/{author}/books', 'AuthorsBooksRelatedController@index')
+        ->name('authors.books');
+
+    Route::patch('authors/{author}/relationships/books', 'AuthorsBooksRelationshipsController@update')
+        ->name('authors.relationships.books');
+
     // Books
     Route::apiResource('books', 'BooksController');
 
     Route::get('books/{book}/relationships/authors', 'BooksAuthorsRelationshipsController@index')
         ->name('books.relationships.authors');
 
-    Route::get('books/{book}/authors', 'BooksAuthorsRelatedController@index')->name('books.authors');
+    Route::get('books/{book}/authors', 'BooksAuthorsRelatedController@index')
+        ->name('books.authors');
 
     Route::patch('books/{book}/relationships/authors', 'BooksAuthorsRelationshipsController@update')
         ->name('books.relationships.authors');

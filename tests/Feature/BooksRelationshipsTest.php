@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Tests\Feature;
-
 
 use App\Author;
 use App\Book;
@@ -25,10 +23,8 @@ class BooksRelationshipsTest extends TestCase
         $book = factory(Book::class)->create();
         $authors = factory(Author::class, 3)->create();
         $book->authors()->sync($authors->pluck('id'));
-
         $user = factory(User::class)->create();
         Passport::actingAs($user);
-
         $this->getJson('/api/v1/books/1', [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
@@ -457,7 +453,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_includes_related_resource_objects_when_an_include_query_param_is_given()
     {
@@ -536,7 +532,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @wat
+     * @@wat
      */
     public function it_does_not_include_related_resource_objects_when_an_include_query_param_is_not_given()
     {
@@ -558,7 +554,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_includes_related_resource_objects_for_a_collection_when_an_include_query_param_is_given()
     {
@@ -702,7 +698,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_does_not_include_related_resource_objects_for_a_collection_when_an_include_query_param_is_not_given()
     {
@@ -722,7 +718,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_only_includes_a_related_resource_object_once_for_a_collection()
     {

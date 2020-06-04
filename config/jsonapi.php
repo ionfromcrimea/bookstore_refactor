@@ -56,6 +56,27 @@ return [
                     'id' => 'book',
                 ]
             ]
+        ],
+        'users' => [
+            'allowedSorts'=> [
+                'name',
+                'email',
+            ],
+            'allowedIncludes' => [],
+            'validationRules'=> [
+                'create' => [
+                    'data.attributes.name' => 'required|string',
+                    'data.attributes.email' => 'required|email',
+                    'data.attributes.password' => 'required|string',
+                ],
+                'update' => [
+                    'data.attributes.name' => 'sometimes|required|string',
+                    'data.attributes.email' => 'sometimes|required|email',
+                    'data.attributes.password' => 'sometimes|required|string',
+                ]
+            ],
+            'relationships' => [
+            ]
         ]
     ]
 ];

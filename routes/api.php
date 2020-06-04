@@ -22,7 +22,12 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
         return $request->user();
     });
 
-    // Authors
+// Users
+    Route::apiResource('users', 'UsersController');
+    Route::get('/users/current', function (Request $request) {
+        return $request->user();
+    });
+// Authors
 //    Route::get('/authors', 'AuthorsController@index');
 //    Route::get('/authors/{author}', 'AuthorsController@show');
     Route::apiResource('authors', 'AuthorsController');
@@ -36,7 +41,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     Route::patch('authors/{author}/relationships/books', 'AuthorsBooksRelationshipsController@update')
         ->name('authors.relationships.books');
 
-    // Books
+// Books
     Route::apiResource('books', 'BooksController');
 
     Route::get('books/{book}/relationships/authors', 'BooksAuthorsRelationshipsController@index')

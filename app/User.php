@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role',
     ];
 
     /**
@@ -39,6 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $attributes = [
+        'role' => 'user',
+    ];
+
     public $incrementing = false;
 
     protected $keyType = 'string';
@@ -49,6 +53,20 @@ class User extends Authenticatable
         static::creating(function ($model) {
             $model->id = (string) Str::uuid();
         });
+    }
+
+    public function type()
+    {
+        return 'users';
+    }
+
+    public function allowedAttributes(){
+        return collect($this->attributes)->filter(function($item, $key){
+            return !collect($this->hidden)->contains($key) && $key !== 'id';
+        })->merge([
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
     }
 
 }

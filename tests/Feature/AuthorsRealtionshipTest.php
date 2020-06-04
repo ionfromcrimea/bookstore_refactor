@@ -15,7 +15,7 @@ class AuthorsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_relationship_to_books_adhering_to_json_api_spec()
     {
@@ -64,7 +64,7 @@ class AuthorsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function a_relationship_link_to_books_returns_all_related_books_as_resource_id_objects()
     {
@@ -98,7 +98,7 @@ class AuthorsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationships_to_authors_and_add_new_relationships()
     {
@@ -132,7 +132,7 @@ class AuthorsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_get_all_related_books_as_resource_objects_from_related_link()
     {

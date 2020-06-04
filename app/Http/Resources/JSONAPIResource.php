@@ -16,17 +16,22 @@ class JSONAPIResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $result = [
             'id' => (string)$this->id,
             'type' => $this->type(),
             'attributes' => $this->allowedAttributes(),
-            'relationships' => $this->prepareRelationships(),
         ];
+        $rels = $this->prepareRelationships();
+        if ($rels === null) {
+            $result['relationships'] = $rels;
+        }
+
+        return $result;
     }
 
     private function prepareRelationships()
     {
-        return collect(config("jsonapi.resources.{$this->type()}.relationships"))
+        $collection = collect(config("jsonapi.resources.{$this->type()}.relationships"))
             ->flatMap(function ($related) {
                 $relatedType = $related['type'];
                 $relationship = $related['method'];
@@ -49,11 +54,12 @@ class JSONAPIResource extends JsonResource
                     ],
                 ];
             });
+        return $collection->count() > 0 ? $collection : new MissingValue();
     }
 
     private function relations()
     {
-        return collect(config("jsonapi.resources.{$this->type()}.relationships"))->map(function($relation){
+        return collect(config("jsonapi.resources.{$this->type()}.relationships"))->map(function ($relation) {
             return JSONAPIResource::collection($this->whenLoaded($relation['method']));
         });
     }

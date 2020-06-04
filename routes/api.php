@@ -53,4 +53,7 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     Route::patch('books/{book}/relationships/authors', 'BooksAuthorsRelationshipsController@update')
         ->name('books.relationships.authors');
 
+// Comments
+    Route::apiResource('comments', 'CommentsController');
+
 });

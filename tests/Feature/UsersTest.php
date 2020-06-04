@@ -16,7 +16,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_user_as_a_resource_object()
     {
@@ -43,7 +43,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_all_users_as_a_collection_of_resource_objects()
     {
@@ -99,7 +99,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_create_an_user_from_a_resource_object()
     {
@@ -143,7 +143,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_is_given_when_creating_an_user()
     {
@@ -184,7 +184,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_has_the_value_of_users_when_creating_an_user()
     {
@@ -225,7 +225,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_has_been_given_when_creating_an_user()
     {
@@ -256,7 +256,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_is_an_object_given_when_creating_a_user()
     {
@@ -289,7 +289,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_name_attribute_is_given_when_creating_a_user()
     {
@@ -324,7 +324,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_name_attribute_is_a_string_when_creating_a_user()
     {
@@ -360,7 +360,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_an_email_attribute_is_given_when_creating_a_user()
     {
@@ -395,7 +395,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_an_email__attribute_is_a_string_when_creating_a_user()
     {
@@ -431,7 +431,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_password_attribute_is_given_when_creating_a_user()
     {
@@ -466,7 +466,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_password_attribute_is_a_string_when_creating_a_user()
     {
@@ -502,7 +502,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_update_a_user_from_a_resource_object()
     {
@@ -549,7 +549,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_is_given_when_updating_an_user()
     {
@@ -591,7 +591,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_has_the_value_of_users_when_updating_an_user()
     {
@@ -633,7 +633,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_has_been_given_when_updating_an_user()
     {
@@ -665,7 +665,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_is_an_object_given_when_updating_a_user()
     {
@@ -699,7 +699,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_name_attribute_is_given_when_updating_a_user()
     {
@@ -736,7 +736,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_name_attribute_is_a_string_when_updating_a_user()
     {
@@ -774,7 +774,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_an_email_attribute_is_a_string_when_updating_a_user()
     {
@@ -811,7 +811,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_password_attribute_is_a_string_when_updating_a_user()
     {
@@ -848,7 +848,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      *
      */
     public function it_can_delete_a_user_through_a_delete_request()
@@ -868,7 +868,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_sort_users_by_name_through_a_sort_query_param()
     {
@@ -930,7 +930,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_sort_users_by_name_in_descending_order_through_a_sort_query_param()
     {
@@ -992,7 +992,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_sort_users_by_multiple_attributes_through_a_sort_query_param()
     {
@@ -1059,7 +1059,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_sort_users_by_multiple_attributes_in_descending_order_through_a_sort_query_param()
     {
@@ -1126,7 +1126,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_paginate_users_through_a_page_query_param()
     {
@@ -1188,7 +1188,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_paginate_users_through_a_page_query_param_and_show_different_pages()
     {

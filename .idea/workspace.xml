@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c81b5b-83b8-411e-9d08-7ddf31ce9f8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Feature/UsersRelationshipsTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jsonapi.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jsonapi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/CommentsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CommentsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/JSONAPIService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/JSONAPIService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/UsersRelationshipsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UsersRelationshipsTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -20,7 +20,7 @@ class JSONAPIService
 
     public function fetchResource($model, $id = 0, $type = '')
     {
-        if($model instanceof Model){
+        if ($model instanceof Model) {
             return new JSONAPIResource($model);
         }
         $query = QueryBuilder::for($model::where('id', $id))
@@ -63,6 +63,21 @@ class JSONAPIService
     public function fetchRelationship($model, string $relationship)
     {
         return JSONAPIIdentifierResource::collection($model->$relationship);
+    }
+
+    public function updateToManyRelationships($model, $relationship, $ids)
+    {
+        $foreignKey = $model->$relationship()->getForeignKeyName();
+        $relatedModel = $model->$relationship()->getRelated();
+        $relatedModel->newQuery()->findOrFail($ids);
+        $relatedModel->newQuery()->where($foreignKey, $model->id)->
+        update([
+            $foreignKey => null,
+        ]);
+        $relatedModel->newQuery()->whereIn('id', $ids)->update([
+            $foreignKey => $model->id,
+        ]);
+        return response(null, 204);
     }
 
     public function updateManyToManyRelationships($model, $relationship, $ids)

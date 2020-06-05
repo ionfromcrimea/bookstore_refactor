@@ -58,12 +58,14 @@ return [
             ]
         ],
         'users' => [
-            'allowedSorts'=> [
+            'allowedSorts' => [
                 'name',
                 'email',
             ],
-            'allowedIncludes' => [],
-            'validationRules'=> [
+            'allowedIncludes' => [
+                'comments',
+            ],
+            'validationRules' => [
                 'create' => [
                     'data.attributes.name' => 'required|string',
                     'data.attributes.email' => 'required|email',
@@ -76,14 +78,19 @@ return [
                 ]
             ],
             'relationships' => [
+                [
+                    'type' => 'comments',
+                    'method' => 'comments',
+                    'id' => 'user',
+                ]
             ]
         ],
         'comments' => [
-            'allowedSorts'=> [
+            'allowedSorts' => [
                 'created_at'
             ],
             'allowedIncludes' => [],
-            'validationRules'=> [
+            'validationRules' => [
                 'create' => [
                     'data.attributes.message' => 'required|string',
                 ],

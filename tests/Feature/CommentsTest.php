@@ -16,7 +16,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_an_comment_as_a_resource_object()
     {
@@ -44,7 +44,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_all_comments_as_a_collection_of_resource_objects()
     {
@@ -91,7 +91,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_create_a_comment_from_a_resource_object()
     {
@@ -130,7 +130,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_is_given_when_creating_a_comment()
     {
@@ -169,7 +169,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_has_the_value_of_comments_when_creating_an_book()
     {
@@ -204,7 +204,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_has_been_given_when_creating_a_comment()
     {
@@ -235,7 +235,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_is_an_object_given_when_creating_a_comment()
     {
@@ -268,7 +268,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_message_attribute_is_given_when_creating_a_comment()
     {
@@ -303,7 +303,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_message_attribute_is_a_string_when_creating_an_book()
     {
@@ -337,7 +337,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_update_an_book_from_a_resource_object()
     {
@@ -378,7 +378,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_an_id_member_is_given_when_updating_a_comment()
     {
@@ -414,7 +414,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_an_id_member_is_a_string_when_updating_a_comment()
     {
@@ -451,7 +451,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_is_given_when_updating_a_comment()
     {
@@ -492,7 +492,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_has_the_value_of_comments_when_updating_an_book()
     {
@@ -529,7 +529,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_has_been_given_when_updating_a_comment()
     {
@@ -562,7 +562,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_attributes_member_is_an_object_given_when_updating_a_comment()
     {
@@ -597,7 +597,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_a_message_attribute_is_a_string_when_updating_an_book()
     {
@@ -633,7 +633,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      *
      */
     public function it_can_delete_an_book_through_a_delete_request()
@@ -655,7 +655,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_sort_comments_by_created_at_through_a_sort_query_parameter()
     {
@@ -705,7 +705,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_sort_comments_by_created_at_in_descending_order_through_a_sort_query_parameter()
     {
@@ -755,7 +755,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_paginate_comments_through_a_page_query_parameter()
     {
@@ -826,7 +826,7 @@ class CommentsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_paginate_comments_through_a_page_query_parameter_and_show_different_pages()
     {

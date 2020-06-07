@@ -35,7 +35,8 @@ return [
                 'updated_at',
             ],
             'allowedIncludes' => [
-                'authors'
+                'authors',
+                'comments',
             ],
             'validationRules' => [
                 'create' => [
@@ -53,6 +54,11 @@ return [
                 [
                     'type' => 'authors',
                     'method' => 'authors',
+                    'id' => 'book',
+                ],
+                [
+                    'type' => 'comments',
+                    'method' => 'comments',
                     'id' => 'book',
                 ]
             ]

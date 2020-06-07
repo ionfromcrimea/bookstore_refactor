@@ -44,6 +44,10 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     Route::get('books/{book}/authors', 'BooksAuthorsRelatedController@index')->name('books.authors');
     Route::patch('books/{book}/relationships/authors', 'BooksAuthorsRelationshipsController@update')->name('books.relationships.authors');
 
+    Route::get('books/{book}/relationships/comments', 'BooksCommentsRelationshipsController@index')->name('books.relationships.comments');
+    Route::patch('books/{book}/relationships/comments', 'BooksCommentsRelationshipsController@update')->name('books.relationships.comments');
+    Route::get('books/{book}/comments', 'BooksCommentsRelatedController@index')->name('books.comments');
+
 // Comments
     Route::apiResource('comments', 'CommentsController');
 

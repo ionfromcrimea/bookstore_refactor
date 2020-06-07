@@ -14,7 +14,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_relationship_to_comments_adhering_to_json_api_spec()
     {
@@ -101,7 +101,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function a_relationship_link_to_comments_returns_all_related_comments_as_resource_id_()
     {
@@ -134,7 +134,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationships_to_comments_and_add_new_relationships()
     {
@@ -169,7 +169,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationships_to_comments_and_remove_relationships()
     {
@@ -216,7 +216,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_404_not_found_when_trying_to_add_relationship_to_a_non_existing_comments()
     {
@@ -250,7 +250,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_id_member_is_given_when_updating_a_relationship()
     {
@@ -282,7 +282,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_id_member_is_a_string_when_updating_a_relationship()
     {
@@ -315,7 +315,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_is_given_when_updating_a_relationship()
     {
@@ -347,7 +347,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_has_a_value_of_commits_when_updating_a_relationship()
     {
@@ -380,7 +380,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_get_all_related_comments_as_resource_objects_from_related_link()
     {
@@ -427,7 +427,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_does_not_include_related_resource_objects_when_an_include_query_param_is_absent()
     {
@@ -447,7 +447,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_includes_related_resource_objects_for_a_collection_when_an_include_query_()
     {
@@ -573,7 +573,7 @@ class UsersRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_only_includes_a_related_resource_object_once_for_a_collection()
     {

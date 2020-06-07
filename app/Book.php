@@ -17,6 +17,11 @@ class Book extends AbstractAPIModel
         return $this->belongsToMany(Author::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function type()
     {
         return 'books';

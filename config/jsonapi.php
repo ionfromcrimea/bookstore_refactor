@@ -95,7 +95,10 @@ return [
             'allowedSorts' => [
                 'created_at'
             ],
-            'allowedIncludes' => [],
+            'allowedIncludes' => [
+                'books',
+                'users',
+                ],
             'validationRules' => [
                 'create' => [
                     'data.attributes.message' => 'required|string',
@@ -105,6 +108,16 @@ return [
                 ]
             ],
             'relationships' => [
+                [
+                    'type' => 'books',
+                    'method' => 'books',
+                    'id' => 'comment',
+                ],
+                [
+                    'type' => 'users',
+                    'method' => 'users',
+                    'id' => 'comment',
+                ],
             ]
         ]
     ]

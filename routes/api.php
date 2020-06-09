@@ -50,5 +50,12 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
 
 // Comments
     Route::apiResource('comments', 'CommentsController');
+    Route::get('comments/{comment}/relationships/users', 'CommentsUsersRelationshipsController@index')->name('comments.relationships.users');
+    Route::patch('comments/{comment}/relationships/users', 'CommentsUsersRelationshipsController@update')->name('comments.relationships.users');
+    Route::get('comments/{comment}/users', 'CommentsUsersRelatedController@index')->name('comments.users');
+
+    Route::get('comments/{comment}/relationships/books', 'CommentsBooksRelationshipsController@index')->name('comments.relationships.books');
+    Route::patch('comments/{comment}/relationships/books', 'CommentsBooksRelationshipsController@update')->name('comments.relationships.books');
+    Route::get('comments/{comment}/books', 'CommentsBooksRelatedController@index')->name('comments.books');
 
 });

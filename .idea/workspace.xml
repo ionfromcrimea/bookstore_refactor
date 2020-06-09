@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="78c81b5b-83b8-411e-9d08-7ddf31ce9f8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/JSONAPIRelationshipRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/JSONAPIRelationshipRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/JSONAPIResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/JSONAPIResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/JSONAPIService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/JSONAPIService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/jsonapi.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jsonapi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/BooksRelationshipsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/BooksRelationshipsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/UsersRelationshipsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UsersRelationshipsTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +158,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Docker" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

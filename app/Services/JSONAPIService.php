@@ -62,7 +62,24 @@ class JSONAPIService
 
     public function fetchRelationship($model, string $relationship)
     {
-        return JSONAPIIdentifierResource::collection($model->$relationship);
+//        return JSONAPIIdentifierResource::collection($model->$relationship);
+        if ($model->$relationship instanceof Model) {
+            return new JSONAPIIdentifierResource($model->$relationship);
+        }
+        return JSONAPIIdentifierResource::collection($model->
+        $relationship);
+    }
+
+    public function updateToOneRelationship($model, $relationship, $id)
+    {
+        $relatedModel = $model->$relationship()->getRelated();
+        $model->$relationship()->dissociate();
+        if ($id) {
+            $newModel = $relatedModel->newQuery()->findOrFail($id);
+            $model->$relationship()->associate($newModel);
+        }
+        $model->save();
+        return response(null, 204);
     }
 
     public function updateToManyRelationships($model, $relationship, $ids)
@@ -88,6 +105,10 @@ class JSONAPIService
 
     public function fetchRelated($model, $relationship)
     {
+//        return new JSONAPICollection($model->$relationship);
+        if ($model->$relationship instanceof Model) {
+            return new JSONAPIResource($model->$relationship);
+        }
         return new JSONAPICollection($model->$relationship);
     }
 

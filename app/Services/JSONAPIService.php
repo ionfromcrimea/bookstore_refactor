@@ -6,6 +6,8 @@ use App\Http\Resources\JSONAPICollection;
 use App\Http\Resources\JSONAPIIdentifierResource;
 use App\Http\Resources\JSONAPIResource;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -60,7 +62,14 @@ class JSONAPIService
     protected function handleRelationship(array $relationships, $model): void
     {
         foreach ($relationships as $relationshipName => $contents) {
-            $this->updateToOneRelationship($model, $relationshipName, $contents['data']['id']);
+//            $this->updateToOneRelationship($model, $relationshipName, $contents['data']['id']);
+            if ($model->$relationshipName() instanceof BelongsTo) {
+                $this->updateToOneRelationship($model, $relationshipName, $contents['data']['id']);
+            }
+            if ($model->$relationshipName() instanceof BelongsToMany) {
+                $this->updateManyToManyRelationships($model,$relationshipName, collect($contents['data'])
+                    ->pluck('id'));
+            }
         }
         $model->load(array_keys($relationships));
     }

@@ -15,7 +15,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_relationship_to_user_adhering_to_json_api_spec()
     {
@@ -77,7 +77,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_relationship_to_book_adhering_to_json_api_spec()
     {
@@ -139,7 +139,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_relationship_to_both_book_and_user_adhering_to_json_api()
     {
@@ -230,7 +230,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function a_relationship_link_to_user_returns_related_user_as_resource_id_object()
     {
@@ -256,7 +256,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function a_relationship_link_to_book_returns_related_book_as_resource_id_object()
     {
@@ -282,7 +282,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationship_to_a_user_and_change_to_another_user()
     {
@@ -313,7 +313,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationship_to_a_book_and_change_to_another_book()
     {
@@ -345,7 +345,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationship_to_a_user_and_remove_relationship()
     {
@@ -370,7 +370,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_modify_relationship_to_a_book_and_remove_relationship()
     {
@@ -397,7 +397,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_404_not_found_when_trying_to_add_relationship_to_a_non_existing_user()
     {
@@ -421,7 +421,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_returns_a_404_not_found_when_trying_to_add_relationship_to_a_non_existing_book()
     {
@@ -444,7 +444,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_id_member_is_given_when_updating_a_relationship()
     {
@@ -478,7 +478,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_id_member_is_a_string_when_updating_a_relationship()
     {
@@ -514,7 +514,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_is_given_when_updating_a_relationship()
     {
@@ -548,7 +548,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_that_the_type_member_has_a_value_of_books_when_updating_a_relationship()
     {
@@ -583,7 +583,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_get_related_user_as_a_resource_object_from_related_link()
     {
@@ -617,7 +617,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_get_related_book_as_a_resource_object_from_related_link()
     {
@@ -651,7 +651,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_does_not_include_related_resource_objects_when_an_include_query_param_is_not_given()
     {
@@ -676,7 +676,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_includes_related_resource_objects_for_a_collection_when_an_include_query_param_is_given()
     {
@@ -855,7 +855,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_does_not_include_related_resource_objects_for_a_collection_when_an_include_query_param_is_not_given()
     {
@@ -880,7 +880,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_only_includes_a_related_resource_object_once_for_a_collection()
     {
@@ -1128,7 +1128,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function when_creating_a_comment_it_can_also_add_relationships_right_away()
     {
@@ -1216,7 +1216,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_relationships_given_when_creating_comment()
     {
@@ -1272,7 +1272,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function when_updating_a_comment_it_can_also_update_relationships()
     {
@@ -1366,7 +1366,7 @@ class CommentsRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_relationships_given_when_updating_comment()
     {

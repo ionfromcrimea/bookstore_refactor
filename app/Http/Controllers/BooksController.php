@@ -70,7 +70,7 @@ class BooksController extends Controller
 //            ->header('Location', route('books.show', [
 //                'book' => $book,
 //            ]));
-        return $this->service->createResource(Book::class, $request->input('data.attributes'));
+        return $this->service->createResource(Book::class, $request->input('data.attributes'), $request->input('data.relationships'));
     }
 
     /**
@@ -111,7 +111,7 @@ class BooksController extends Controller
     {
 //        $book->update($request->input('data.attributes'));
 //        return new JSONAPIResource($book);
-        return $this->service->updateResource($book, $request->input('data.attributes'));
+        return $this->service->updateResource($book, $request->input('data.attributes'), $request->input('data.relationships'));
     }
 
     /**

@@ -38,9 +38,18 @@ class JSONAPIService
         return new JSONAPICollection($models);
     }
 
-    public function createResource(string $modelClass, array $attributes)
+    public function createResource(string $modelClass, array $attributes, array $relationships = null)
     {
         $model = $modelClass::create($attributes);
+
+        if ($relationships) {
+//            foreach ($relationships as $relationshipName => $contents) {
+//                $this->updateToOneRelationship($model, $relationshipName, $contents['data']['id']);
+//            }
+//            $model->load(array_keys($relationships));
+            $this->handleRelationship($relationships, $model);
+        }
+
         return (new JSONAPIResource($model))
             ->response()
             ->header('Location', route("{$model->type()}.show", [
@@ -48,9 +57,20 @@ class JSONAPIService
             ]));
     }
 
-    public function updateResource($model, $attributes)
+    protected function handleRelationship(array $relationships, $model): void
+    {
+        foreach ($relationships as $relationshipName => $contents) {
+            $this->updateToOneRelationship($model, $relationshipName, $contents['data']['id']);
+        }
+        $model->load(array_keys($relationships));
+    }
+
+    public function updateResource($model, $attributes, $relationships = null)
     {
         $model->update($attributes);
+        if ($relationships) {
+            $this->handleRelationship($relationships, $model);
+        }
         return new JSONAPIResource($model);
     }
 

@@ -35,7 +35,9 @@ class CommentsController extends Controller
      */
     public function store(JSONAPIRequest $request)
     {
-        return $this->service->createResource(Comment::class, $request->input('data.attributes'));
+//        return $this->service->createResource(Comment::class, $request->input('data.attributes'));
+        return $this->service->createResource(Comment::class, $request->
+        input('data.attributes'), $request->input('data.relationships'));
     }
 
     /**
@@ -58,7 +60,7 @@ class CommentsController extends Controller
      */
     public function update(JSONAPIRequest $request, Comment $comment)
     {
-        return $this->service->updateResource($comment, $request->input('data.attributes'));
+        return $this->service->updateResource($comment, $request->input('data.attributes'), $request->input('data.relationships'));
     }
 
     /**

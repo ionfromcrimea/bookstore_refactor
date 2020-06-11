@@ -11,6 +11,7 @@ return [
             'allowedIncludes' => [
                 'books'
             ],
+            'allowedFilters' => [],
             'validationRules' => [
                 'create' => [
                     'data.attributes.name' => 'required|string',
@@ -38,6 +39,7 @@ return [
                 'authors',
                 'comments',
             ],
+            'allowedFilters' => [],
             'validationRules' => [
                 'create' => [
                     'data.attributes.title' => 'required|string',
@@ -71,6 +73,13 @@ return [
             'allowedIncludes' => [
                 'comments',
             ],
+            'allowedFilters' => [
+                'role',
+                "AllowedFilter::exact('role')",
+//                Spatie\QueryBuilder\Filter::exact('role'),
+//                "exact('role')",
+//                "Spatie\QueryBuilder\Filter::exact('role')",
+            ],
             'validationRules' => [
                 'create' => [
                     'data.attributes.name' => 'required|string',
@@ -98,7 +107,9 @@ return [
             'allowedIncludes' => [
                 'books',
                 'users',
-                ],
+            ],
+            'allowedFilters' => [
+            ],
             'validationRules' => [
                 'create' => [
                     'data.attributes.message' => 'required|string',

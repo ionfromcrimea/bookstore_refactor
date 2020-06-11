@@ -1496,7 +1496,7 @@ class BooksRelationshipsTest extends TestCase
     }
 
     /** @test */
-    /* @watch */
+    /* @@wat */
 
     public function when_creating_a_book_it_can_also_add_relationships_right_away()
     {
@@ -1585,7 +1585,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_relationships_given_when_creating_book()
     {
@@ -1643,7 +1643,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function when_updating_a_book_it_can_also_update_relationships()
     {
@@ -1726,7 +1726,7 @@ class BooksRelationshipsTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_validates_relationships_given_when_updating_a_book()
     {

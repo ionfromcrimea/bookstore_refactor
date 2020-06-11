@@ -26,19 +26,19 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users/{$user->id}", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
-             ->assertJson([
-                 "data" => [
-                     "id" => $user->id,
-                     "type" => "users",
-                     "attributes" => [
-                         'name' => $user->name,
-                         'email' => $user->email,
-                         'created_at' => $user->created_at->toJSON(),
-                         'updated_at' => $user->updated_at->toJSON(),
-                     ]
-                 ]
-             ]);
+        ])->assertStatus(200)
+            ->assertJson([
+                "data" => [
+                    "id" => $user->id,
+                    "type" => "users",
+                    "attributes" => [
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'created_at' => $user->created_at->toJSON(),
+                        'updated_at' => $user->updated_at->toJSON(),
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -57,44 +57,44 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
-             ->assertJson([
-                 "data" => [
-                     [
-                         "id" => $users[0]->id,
-                         "type" => "users",
-                         "attributes" => [
-                             'name' => $users[0]->name,
-                             'email' => $users[0]->email,
-                             'role' => 'user',
-                             'created_at' => $users[0]->created_at->toJSON(),
-                             'updated_at' => $users[0]->updated_at->toJSON(),
-                         ]
-                     ],
-                     [
-                         "id" => $users[1]->id,
-                         "type" => "users",
-                         "attributes" => [
-                             'name' => $users[1]->name,
-                             'email' => $users[1]->email,
-                             'role' => 'user',
-                             'created_at' => $users[1]->created_at->toJSON(),
-                             'updated_at' => $users[1]->updated_at->toJSON(),
-                         ]
-                     ],
-                     [
-                         "id" => $users[2]->id,
-                         "type" => "users",
-                         "attributes" => [
-                             'name' => $users[2]->name,
-                             'email' => $users[2]->email,
-                             'role' => 'user',
-                             'created_at' => $users[2]->created_at->toJSON(),
-                             'updated_at' => $users[2]->updated_at->toJSON(),
-                         ]
-                     ],
-                 ]
-             ]);
+        ])->assertStatus(200)
+            ->assertJson([
+                "data" => [
+                    [
+                        "id" => $users[0]->id,
+                        "type" => "users",
+                        "attributes" => [
+                            'name' => $users[0]->name,
+                            'email' => $users[0]->email,
+                            'role' => 'user',
+                            'created_at' => $users[0]->created_at->toJSON(),
+                            'updated_at' => $users[0]->updated_at->toJSON(),
+                        ]
+                    ],
+                    [
+                        "id" => $users[1]->id,
+                        "type" => "users",
+                        "attributes" => [
+                            'name' => $users[1]->name,
+                            'email' => $users[1]->email,
+                            'role' => 'user',
+                            'created_at' => $users[1]->created_at->toJSON(),
+                            'updated_at' => $users[1]->updated_at->toJSON(),
+                        ]
+                    ],
+                    [
+                        "id" => $users[2]->id,
+                        "type" => "users",
+                        "attributes" => [
+                            'name' => $users[2]->name,
+                            'email' => $users[2]->email,
+                            'role' => 'user',
+                            'created_at' => $users[2]->created_at->toJSON(),
+                            'updated_at' => $users[2]->updated_at->toJSON(),
+                        ]
+                    ],
+                ]
+            ]);
     }
 
     /**
@@ -110,27 +110,27 @@ class UsersTest extends TestCase
             'data' => [
                 'type' => 'users',
                 'attributes' => [
-                   'name' => 'John Doe',
-                   'email' => 'john@example.com',
-                   'password' => 'secret',
+                    'name' => 'John Doe',
+                    'email' => 'john@example.com',
+                    'password' => 'secret',
                 ]
             ]
         ], [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])->assertStatus(201)
-             ->assertJson([
-                 "data" => [
-                     "type" => "users",
-                     "attributes" => [
-                         'name' => 'John Doe',
-                         'email' => 'john@example.com',
-                         'role' => 'user',
-                         'created_at' => now()->setMilliseconds(0)->toJSON(),
-                         'updated_at' => now() ->setMilliseconds(0)->toJSON(),
-                     ]
-                 ]
-             ]);
+            ->assertJson([
+                "data" => [
+                    "type" => "users",
+                    "attributes" => [
+                        'name' => 'John Doe',
+                        'email' => 'john@example.com',
+                        'role' => 'user',
+                        'created_at' => now()->setMilliseconds(0)->toJSON(),
+                        'updated_at' => now()->setMilliseconds(0)->toJSON(),
+                    ]
+                ]
+            ]);
 
         $this->assertDatabaseHas('users', [
             'name' => 'John Doe',
@@ -163,18 +163,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.type field is required.',
-                         'source'  => [
-                             'pointer' => '/data/type',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.type field is required.',
+                        'source' => [
+                            'pointer' => '/data/type',
+                        ]
+                    ]
+                ]
+            ]);
 
         $this->assertDatabaseMissing('users', [
             'name' => 'John Doe',
@@ -205,17 +205,17 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The selected data.type is invalid.',
-                         'source'  => [
-                             'pointer' => '/data/type',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The selected data.type is invalid.',
+                        'source' => [
+                            'pointer' => '/data/type',
+                        ]
+                    ]
+                ]
+            ]);
 
         $this->assertDatabaseMissing('users', [
             'name' => 'John Doe',
@@ -241,17 +241,17 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes field is required.',
-                         'source'  => [
-                             'pointer' => '/data/attributes',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes field is required.',
+                        'source' => [
+                            'pointer' => '/data/attributes',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -273,18 +273,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes must be an array.',
-                         'source'  => [
-                             'pointer' => '/data/attributes',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes must be an array.',
+                        'source' => [
+                            'pointer' => '/data/attributes',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -308,18 +308,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.name field is required.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/name',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.name field is required.',
+                        'source' => [
+                            'pointer' => '/data/attributes/name',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -344,18 +344,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.name must be a string.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/name',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.name must be a string.',
+                        'source' => [
+                            'pointer' => '/data/attributes/name',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -379,18 +379,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.email field is required.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/email',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.email field is required.',
+                        'source' => [
+                            'pointer' => '/data/attributes/email',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -415,18 +415,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.email must be a valid email address.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/email',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.email must be a valid email address.',
+                        'source' => [
+                            'pointer' => '/data/attributes/email',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -450,18 +450,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.password field is required.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/password',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.password field is required.',
+                        'source' => [
+                            'pointer' => '/data/attributes/password',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -486,18 +486,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.password must be a string.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/password',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.password must be a string.',
+                        'source' => [
+                            'pointer' => '/data/attributes/password',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -524,19 +524,19 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(200)
-             ->assertJson([
-                 "data" => [
-                     "id" => $user->id,
-                     "type" => "users",
-                     "attributes" => [
-                         'name' => 'John Doe',
-                         'email' => 'john@example.com',
-                         'created_at' => now()->setMilliseconds(0)->toJSON(),
-                         'updated_at' => now() ->setMilliseconds(0)->toJSON(),
-                     ]
-                 ]
-             ]);
+            ->assertStatus(200)
+            ->assertJson([
+                "data" => [
+                    "id" => $user->id,
+                    "type" => "users",
+                    "attributes" => [
+                        'name' => 'John Doe',
+                        'email' => 'john@example.com',
+                        'created_at' => now()->setMilliseconds(0)->toJSON(),
+                        'updated_at' => now()->setMilliseconds(0)->toJSON(),
+                    ]
+                ]
+            ]);
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
@@ -570,18 +570,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.type field is required.',
-                         'source'  => [
-                             'pointer' => '/data/type',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.type field is required.',
+                        'source' => [
+                            'pointer' => '/data/type',
+                        ]
+                    ]
+                ]
+            ]);
 
         $this->assertDatabaseMissing('users', [
             'name' => 'John Doe',
@@ -613,17 +613,17 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The selected data.type is invalid.',
-                         'source'  => [
-                             'pointer' => '/data/type',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The selected data.type is invalid.',
+                        'source' => [
+                            'pointer' => '/data/type',
+                        ]
+                    ]
+                ]
+            ]);
 
         $this->assertDatabaseMissing('users', [
             'name' => 'John Doe',
@@ -650,17 +650,17 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes field is required.',
-                         'source'  => [
-                             'pointer' => '/data/attributes',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes field is required.',
+                        'source' => [
+                            'pointer' => '/data/attributes',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -683,18 +683,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes must be an array.',
-                         'source'  => [
-                             'pointer' => '/data/attributes',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes must be an array.',
+                        'source' => [
+                            'pointer' => '/data/attributes',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -720,18 +720,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.name field is required.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/name',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.name field is required.',
+                        'source' => [
+                            'pointer' => '/data/attributes/name',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -757,18 +757,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.name must be a string.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/name',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.name must be a string.',
+                        'source' => [
+                            'pointer' => '/data/attributes/name',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
 
@@ -795,18 +795,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.email must be a valid email address.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/email',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.email must be a valid email address.',
+                        'source' => [
+                            'pointer' => '/data/attributes/email',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -832,18 +832,18 @@ class UsersTest extends TestCase
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])
-             ->assertStatus(422)
-             ->assertJson([
-                 'errors' => [
-                     [
-                         'title'   => 'Validation Error',
-                         'details' => 'The data.attributes.password must be a string.',
-                         'source'  => [
-                             'pointer' => '/data/attributes/password',
-                         ]
-                     ]
-                 ]
-             ]);
+            ->assertStatus(422)
+            ->assertJson([
+                'errors' => [
+                    [
+                        'title' => 'Validation Error',
+                        'details' => 'The data.attributes.password must be a string.',
+                        'source' => [
+                            'pointer' => '/data/attributes/password',
+                        ]
+                    ]
+                ]
+            ]);
     }
 
     /**
@@ -856,7 +856,7 @@ class UsersTest extends TestCase
         $user = factory(User::class)->create();
         Passport::actingAs($user);
 
-        $this->delete("/api/v1/users/{$user->id}",[], [
+        $this->delete("/api/v1/users/{$user->id}", [], [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
         ])->assertStatus(204);
@@ -888,7 +888,7 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users?sort=name", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
+        ])->assertStatus(200)
             ->assertJson([
                 "data" => [
                     [
@@ -950,7 +950,7 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users?sort=-name", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
+        ])->assertStatus(200)
             ->assertJson([
                 "data" => [
                     [
@@ -996,7 +996,7 @@ class UsersTest extends TestCase
      */
     public function it_can_sort_users_by_multiple_attributes_through_a_sort_query_param()
     {
-        $users = factory(User::class, 3)->make()->each(function(User $user, $index){
+        $users = factory(User::class, 3)->make()->each(function (User $user, $index) {
             $names = [
                 'Adam',
                 'Adam',
@@ -1017,7 +1017,7 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users?sort=name,email", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
+        ])->assertStatus(200)
             ->assertJson([
                 "data" => [
                     [
@@ -1063,7 +1063,7 @@ class UsersTest extends TestCase
      */
     public function it_can_sort_users_by_multiple_attributes_in_descending_order_through_a_sort_query_param()
     {
-        $users = factory(User::class, 3)->make()->each(function(User $user, $index){
+        $users = factory(User::class, 3)->make()->each(function (User $user, $index) {
             $names = [
                 'Adam',
                 'Adam',
@@ -1084,7 +1084,7 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users?sort=-name,email", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
+        ])->assertStatus(200)
             ->assertJson([
                 "data" => [
                     [
@@ -1140,7 +1140,7 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users?page[size]=3&page[number]=1", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
+        ])->assertStatus(200)
             ->assertJson([
                 "data" => [
                     [
@@ -1202,7 +1202,7 @@ class UsersTest extends TestCase
         $this->getJson("/api/v1/users?page[size]=3&page[number]=2", [
             'accept' => 'application/vnd.api+json',
             'content-type' => 'application/vnd.api+json',
-        ]) ->assertStatus(200)
+        ])->assertStatus(200)
             ->assertJson([
                 "data" => [
                     [
@@ -1247,4 +1247,149 @@ class UsersTest extends TestCase
                 ]
             ]);
     }
+
+    /**
+     * @test
+     * @watch
+     */
+    public function it_can_filter_administrators_by_role()
+    {
+        $this->withoutExceptionHandling();
+        $users = factory(User::class, 3)->create();
+//        $users = $users->sortBy(function ($item) {
+//            return $item->id;
+//        })->values();
+        $users->first()->role = 'admin';
+        $users->first()->save();
+
+        Passport::actingAs($users->first());
+
+        $this->getJson("/api/v1/users?filter[role]=admin", [
+            'accept' => 'application/vnd.api+json',
+            'content-type' => 'application/vnd.api+json',
+        ])->assertStatus(200)
+            ->assertJson([
+                "data" => [
+                    [
+                        "id" => $users[0]->id,
+                        "type" => "users",
+                        "attributes" => [
+                            'name' => $users[0]->name,
+                            'email' => $users[0]->email,
+                            'role' => 'admin',
+                            'created_at' => $users[0]->created_at->toJSON(),
+                            'updated_at' => $users[0]->updated_at->toJSON(),
+                        ]
+                    ],
+
+                ]
+            ])
+            ->assertJsonMissing([
+                "id" => $users[1]->id,
+                "attributes" => [
+                    'name' => $users[1]->name,
+                    'email' => $users[1]->email,
+                    'role' => 'user',
+                    'created_at' => $users[1]->created_at->toJSON(),
+                    'updated_at' => $users[1]->updated_at->toJSON(),
+                ]
+            ])->assertJsonMissing([
+                "id" => $users[2]->id,
+                "attributes" => [
+                    'name' => $users[2]->name,
+                    'email' => $users[2]->email,
+                    'role' => 'user',
+                    'created_at' => $users[2]->created_at->toJSON(),
+                    'updated_at' => $users[2]->updated_at->toJSON(),
+                ]
+            ]);
+    }
+
+    /**
+     * @test
+     * @watch
+     */
+    public function it_can_filter_users_by_role()
+    {
+        $users = factory(User::class, 3)->create();
+//        $users = $users->sortBy(function ($item) {
+//            return $item->id;
+//        })->values();
+        $users->first()->role = 'admin';
+        $users->first()->save();
+
+        Passport::actingAs($users->first());
+
+        $this->getJson("/api/v1/users?filter[role]=user", [
+            'accept' => 'application/vnd.api+json',
+            'content-type' => 'application/vnd.api+json',
+        ])->assertStatus(200)
+            ->assertJson([
+                "data" => [
+                    [
+                        "id" => $users[1]->id,
+                        "type" => "users",
+                        "attributes" => [
+                            'name' => $users[1]->name,
+                            'email' => $users[1]->email,
+                            'role' => 'user',
+                            'created_at' => $users[1]->created_at->toJSON(),
+                            'updated_at' => $users[1]->updated_at->toJSON(),
+                        ]
+                    ],
+                    [
+                        "id" => $users[2]->id,
+                        "type" => "users",
+                        "attributes" => [
+                            'name' => $users[2]->name,
+                            'email' => $users[2]->email,
+                            'role' => 'user',
+                            'created_at' => $users[2]->created_at->toJSON(),
+                            'updated_at' => $users[2]->updated_at->toJSON(),
+                        ]
+                    ]
+
+                ]
+            ])
+            ->assertJsonMissing([
+                "id" => $users[0]->id,
+                "attributes" => [
+                    'name' => $users[0]->name,
+                    'email' => $users[0]->email,
+                    'role' => 'admin',
+                    'created_at' => $users[0]->created_at->toJSON(),
+                    'updated_at' => $users[0]->updated_at->toJSON(),
+                ]
+            ]);
+    }
+
+    /**
+     * @test
+     * @watch
+     */
+    public function it_cannot_fetch_a_resource_with_a_role_that_does_not_exist()
+    {
+        $users = factory(User::class, 3)->create();
+//        $users = $users->sortBy(function ($item) {
+//            return $item->id;
+//        })->values();
+        $users->first()->role = 'admin';
+        $users->first()->save();
+
+        Passport::actingAs($users->first());
+
+        $this->getJson("/api/v1/users?filter[foo]=bar", [
+            'accept' => 'application/vnd.api+json',
+            'content-type' => 'application/vnd.api+json',
+        ])->assertStatus(400)->assertJson([
+            'errors' => [
+                [
+                    'title' => 'Invalid Filter Query',
+                    'details' => 'Requested filter(s) `foo` are not allowed. Allowed filter(s) are `role, AllowedFilter::exact(\'role\')`.'
+                ]
+            ]
+        ]);
+
+    }
+
 }

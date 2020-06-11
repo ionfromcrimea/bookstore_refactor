@@ -10,15 +10,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
+//use Illuminate\Database\QueryException;
 
 class JSONAPIService
 
 {
-
-//    public function fetchResource($model)
-//    {
-//        return new JSONAPIResource($model);
-//    }
 
     public function fetchResource($model, $id = 0, $type = '')
     {
@@ -36,6 +32,7 @@ class JSONAPIService
         $models = QueryBuilder::for($modelClass)
             ->allowedSorts(config("jsonapi.resources.{$type}.allowedSorts"))
             ->allowedIncludes(config("jsonapi.resources.{$type}.allowedIncludes"))
+            ->allowedFilters(config("jsonapi.resources.{$type}.allowedFilters"))
             ->jsonPaginate();
         return new JSONAPICollection($models);
     }

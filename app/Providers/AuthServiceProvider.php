@@ -26,6 +26,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Passport::routes();
-        Passport::enableImplicitGrant();
+//        Passport::enableImplicitGrant();
+        Gate::define('admin-only', function ($user) {
+            return $user->role === 'admin';
+        });
     }
+
 }

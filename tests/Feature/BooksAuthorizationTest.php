@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Author;
 use App\Book;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -243,6 +244,71 @@ class BooksAuthorizationTest extends TestCase
             'content-type' => 'application/vnd.api+json',
         ])
             ->assertStatus(200);
+    }
+
+    /**
+     * @test
+     * @watch
+     */
+    public function a_user_cannot_modify_relationship_links_for_authors()
+    {
+        $book = factory(Book::class)->create();
+        $authors = factory(Author::class, 10)->create();
+        $user = factory(User::class)->create([
+            'role' => 'user'
+        ]);
+        Passport::actingAs($user);
+        $this->patchJson('/api/v1/books/1/relationships/authors', [
+            'data' => [
+                [
+                    'id' => '5',
+                    'type' => 'authors',
+                ],
+                [
+                    'id' => '6',
+                    'type' => 'authors',
+                ]
+            ]
+        ], [
+            'accept' => 'application/vnd.api+json',
+            'content-type' => 'application/vnd.api+json',
+        ])->assertStatus(403)->assertJson([
+            'errors' => [
+                [
+                    'title' => 'Access Denied Http Exception',
+                    'details' => 'This action is unauthorized.',
+                ]
+            ]
+        ]);
+    }
+
+    /**
+     * @test
+     * @watch
+     */
+    public function an_admin_can_modify_relationship_links_for_authors()
+    {
+        $book = factory(Book::class)->create();
+        $authors = factory(Author::class, 10)->create();
+        $user = factory(User::class)->create([
+            'role' => 'admin'
+        ]);
+        Passport::actingAs($user);
+        $this->patchJson('/api/v1/books/1/relationships/authors', [
+            'data' => [
+                [
+                    'id' => '5',
+                    'type' => 'authors',
+                ],
+                [
+                    'id' => '6',
+                    'type' => 'authors',
+                ]
+            ]
+        ], [
+            'accept' => 'application/vnd.api+json',
+            'content-type' => 'application/vnd.api+json',
+        ])->assertStatus(204);
     }
 
 }

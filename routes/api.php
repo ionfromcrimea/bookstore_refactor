@@ -23,13 +23,15 @@ Route::middleware('auth:api')->prefix('v1')->group(function () {
     });
 
 // Users
+    Route::get('/users/current', 'CurrentAuthenticatedUserController@show');
     Route::apiResource('users', 'UsersController');
     Route::get('users/{user}/relationships/comments', 'UsersCommentsRelationshipsController@index')->name('users.relationships.comments');
     Route::patch('users/{user}/relationships/comments', 'UsersCommentsRelationshipsController@update')->name('users.relationships.comments');
     Route::get('users/{user}/comments', 'UsersCommentsRelatedController@index')->name('users.comments');
-    Route::get('/users/current', function (Request $request) {
-        return $request->user();
-    });
+//    Route::get('/users/current', function (Request $request) {
+//        return $request->user();
+//    });
+
 // Authors
 //    Route::get('/authors', 'AuthorsController@index');
 //    Route::get('/authors/{author}', 'AuthorsController@show');

@@ -16,10 +16,17 @@ use Spatie\QueryBuilder\QueryBuilder;
 
 class BooksController extends Controller
 {
+    protected function resourceMethodsWithoutModels()
+    {
+        return ['index', 'store', 'show'];
+    }
+
     private $service;
+
     public function __construct(JSONAPIService $service)
     {
         $this->service = $service;
+        $this->authorizeResource(Book::class, 'book');
     }
 
     /**

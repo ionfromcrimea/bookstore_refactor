@@ -1250,7 +1250,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_filter_administrators_by_role()
     {
@@ -1307,7 +1307,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_can_filter_users_by_role()
     {
@@ -1365,7 +1365,7 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @watch
+     * @@wat
      */
     public function it_cannot_fetch_a_resource_with_a_role_that_does_not_exist()
     {

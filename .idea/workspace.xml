@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78c81b5b-83b8-411e-9d08-7ddf31ce9f8b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/Feature/BooksAuthorizationTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/JSONAPIService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/JSONAPIService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jsonapi.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jsonapi.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/BooksRelationshipsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/BooksRelationshipsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/BooksTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/BooksTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/UsersTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UsersTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

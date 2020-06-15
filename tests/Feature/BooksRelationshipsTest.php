@@ -1501,7 +1501,10 @@ class BooksRelationshipsTest extends TestCase
     public function when_creating_a_book_it_can_also_add_relationships_right_away()
     {
         $this->withoutExceptionHandling();
-        $user = factory(User::class)->create();
+//        $user = factory(User::class)->create();
+        $user = factory(User::class)->create([
+            'role' => 'admin'
+        ]);
         Passport::actingAs($user);
 
         $authors = factory(Author::class, 2)->create();
@@ -1589,7 +1592,10 @@ class BooksRelationshipsTest extends TestCase
      */
     public function it_validates_relationships_given_when_creating_book()
     {
-        $user = factory(User::class)->create();
+//        $user = factory(User::class)->create();
+        $user = factory(User::class)->create([
+            'role' => 'admin'
+        ]);
         Passport::actingAs($user);
 
         $authors = factory(Author::class, 2)->create();
@@ -1648,7 +1654,10 @@ class BooksRelationshipsTest extends TestCase
     public function when_updating_a_book_it_can_also_update_relationships()
     {
         $this->withoutExceptionHandling();
-        $user = factory(User::class)->create();
+//        $user = factory(User::class)->create();
+        $user = factory(User::class)->create([
+            'role' => 'admin'
+        ]);
         Passport::actingAs($user);
 
         $book = factory(Book::class)->create();
@@ -1730,7 +1739,10 @@ class BooksRelationshipsTest extends TestCase
      */
     public function it_validates_relationships_given_when_updating_a_book()
     {
-        $user = factory(User::class)->create();
+//        $user = factory(User::class)->create();
+        $user = factory(User::class)->create([
+            'role' => 'admin'
+        ]);
         Passport::actingAs($user);
 
         $book = factory(Book::class)->create();
